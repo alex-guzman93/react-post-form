@@ -25,22 +25,23 @@ function PagePostForm() {
 
 
   return (
+    // Form controllato: i valori degli input riflettono lo stato React
     <form>
       <div className="mb-3">
-        <label htmlfor="exampleInputEmail1" className="form-label">Autore</label>
-        <input onChange={AddData} name="author" value={post.author} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        <label htmlFor="exampleInputEmail1" className="form-label">Autore</label>
+        <input onChange={handlePostChange} name="author" value={post.author} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
       </div>
       <div className="mb-3">
-        <label htmlfor="exampleInputPassword1" className="form-label">Titolo</label>
-        <input onChange={AddData} name="title" value={post.title} type="text" className="form-control" id="exampleInputPassword1" />
+        <label htmlfFor="exampleInputPassword1" className="form-label">Titolo</label>
+        <input onChange={handlePostChange} name="title" value={post.title} type="text" className="form-control" id="exampleInputPassword1" />
       </div>
 
       <div className="mb-3">
         <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrizione</label>
-        <textarea onChange={AddData} name="body" value={post.body} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea onChange={handlePostChange} name="body" value={post.body} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div className="mb-3 form-check">
-        <input onChange={AddData} name="public" type="checkbox" checked={post.public} className="form-check-input" id="exampleCheck1" />
+        <input onChange={handlePostChange} name="public" type="checkbox" checked={post.public} className="form-check-input" id="exampleCheck1" />
         <label className="form-check-label" htmlFor="exampleCheck1">Public</label>
       </div>
 
