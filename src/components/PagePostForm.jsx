@@ -9,6 +9,19 @@ function PagePostForm() {
     body: "",
     public: false
   })
+  // Gestisce il cambiamento di tutti i campi del form (input, textarea, checkbox)
+  const handlePostChange = (e) => {
+    const { name, type, value, checked } = e.target
+
+    setPost(prev => ({
+      ...prev,
+      // Aggiorna dinamicamente la proprietà corretta del post
+      [name]: type === "checkbox" ? checked : value
+    }))
+    console.log("stiamo esseguendo la funzione");
+    console.log("name: ", name, "type: ", type, "value: ", value, "check: ", checked);
+
+  }
 
 
   return (
