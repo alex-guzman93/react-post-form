@@ -22,12 +22,20 @@ function PagePostForm() {
     console.log("name: ", name, "type: ", type, "value: ", value, "check: ", checked);
 
   }
+  //Gestiamo L'invio del form con React
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("vediamo", post);
+
+  }
 
 
   return (
-    // Form controllato: i valori degli input riflettono lo stato React
-    <form>
+//Intercettiamo l'invio del form evitando il comportamento di default del browser
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
+        {/* Form controllato: i valori degli input riflettono lo stato React */}
         <label htmlFor="exampleInputEmail1" className="form-label">Autore</label>
         <input onChange={handlePostChange} name="author" value={post.author} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
       </div>
@@ -44,6 +52,7 @@ function PagePostForm() {
         <input onChange={handlePostChange} name="public" type="checkbox" checked={post.public} className="form-check-input" id="exampleCheck1" />
         <label className="form-check-label" htmlFor="exampleCheck1">Public</label>
       </div>
+      <button className="btn btn-primary" type="submit">Invia</button>
 
 
     </form>
