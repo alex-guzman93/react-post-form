@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PostPreview from "./PostPreview";
 
 
 function PagePostForm() {
@@ -26,38 +27,40 @@ function PagePostForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("vediamo", post);
+    console.log("vemos", post);
 
   }
 
 
   return (
-//Intercettiamo l'invio del form evitando il comportamento di default del browser
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        {/* Form controllato: i valori degli input riflettono lo stato React */}
-        <label htmlFor="exampleInputEmail1" className="form-label">Autore</label>
-        <input onChange={handlePostChange} name="author" value={post.author} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-      </div>
-      <div className="mb-3">
-        <label htmlfFor="exampleInputPassword1" className="form-label">Titolo</label>
-        <input onChange={handlePostChange} name="title" value={post.title} type="text" className="form-control" id="exampleInputPassword1" />
-      </div>
+    <>
+      {/* Intercettiamo l'invio del form evitando il comportamento di default del browser */}
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          {/* Form controllato: i valori degli input riflettono lo stato React */}
+          <label htmlFor="exampleInputEmail1" className="form-label">Autore</label>
+          <input onChange={handlePostChange} name="author" value={post.author} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        </div>
+        <div className="mb-3">
+          <label htmlfFor="exampleInputPassword1" className="form-label">Titolo</label>
+          <input onChange={handlePostChange} name="title" value={post.title} type="text" className="form-control" id="exampleInputPassword1" />
+        </div>
 
-      <div className="mb-3">
-        <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrizione</label>
-        <textarea onChange={handlePostChange} name="body" value={post.body} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      <div className="mb-3 form-check">
-        <input onChange={handlePostChange} name="public" type="checkbox" checked={post.public} className="form-check-input" id="exampleCheck1" />
-        <label className="form-check-label" htmlFor="exampleCheck1">Public</label>
-      </div>
-      <button className="btn btn-primary" type="submit">Invia</button>
-
-
-    </form>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlTextarea1" className="form-label">Descrizione</label>
+          <textarea onChange={handlePostChange} name="body" value={post.body} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div className="mb-3 form-check">
+          <input onChange={handlePostChange} name="public" type="checkbox" checked={post.public} className="form-check-input" id="exampleCheck1" />
+          <label className="form-check-label" htmlFor="exampleCheck1">Public</label>
+        </div>
+        <button className="btn btn-primary" type="submit">Invia</button>
 
 
+      </form>
+      {/* Anteprima del post compilato */}
+      <PostPreview post={post} />
+    </>
   )
 }
 
