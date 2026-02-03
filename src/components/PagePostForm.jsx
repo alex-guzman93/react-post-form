@@ -42,7 +42,7 @@ function PagePostForm() {
           <input onChange={handlePostChange} name="author" value={post.author} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </div>
         <div className="mb-3">
-          <label htmlfFor="exampleInputPassword1" className="form-label">Titolo</label>
+          <label htmlFor="exampleInputPassword1" className="form-label">Titolo</label>
           <input onChange={handlePostChange} name="title" value={post.title} type="text" className="form-control" id="exampleInputPassword1" />
         </div>
 
